@@ -1,0 +1,75 @@
+a{
+  color: unset;
+}
+
+.list {
+  display: flex;
+  overflow-x: scroll;
+}
+.weather {
+  background-image: linear-gradient(gray, white);
+  border-radius: 20px;
+  box-shadow: 0 5px 7px #888888;
+}
+.weather:hover {
+  cursor: pointer;
+}
+.col-md {
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  transition: all 0.5s;
+  box-shadow: 0 10px 20px -4px rgba(159, 153, 153, 0.7);
+  padding: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
+  background-color: rgb(217, 220, 222);
+}
+.col-md:hover {
+  padding-right: 14px;
+  padding-left: 10px;
+  box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+}
+
+body {
+  font-family: "Schibsted Grotesk", sans-serif;
+}
+.cities {
+  cursor: pointer;
+}
+.col-3:hover {
+  color: rgb(86, 86, 142);
+}
+.weatherSituation {
+  cursor: pointer;
+}
+#weatherDescription{
+  text-transform: capitalize;
+}
+#currentIcon{
+  height: 55px;
+  width: 55px;
+  box-shadow: none;
+}
+#headerList{
+  list-style-type: none;
+}
+.card {
+  margin-top: 60px;
+  padding: 20px;
+  background: rgb(128, 246, 200);
+  background: linear-gradient(
+    180deg,
+    rgb(222, 147, 76) 0%,
+    rgba(255, 255, 255, 1) 39%
+  );
+}
+h1 {
+  font-weight: bold;
+}
+.active-temp{
+  color: rgb(48, 143, 48);
+}
+.number{
+  padding:4px;
+}
