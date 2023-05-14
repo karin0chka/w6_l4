@@ -5,6 +5,7 @@ a{
 .list {
   display: flex;
   overflow-x: scroll;
+  overflow-y: hidden;
 }
 .weather {
   background-image: linear-gradient(gray, white);
@@ -14,21 +15,24 @@ a{
 .weather:hover {
   cursor: pointer;
 }
-.col-md {
+#forDay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   text-align: center;
-  width: 100px;
-  height: 100px;
+  min-width: 130px;
+  height: 150px;
   border-radius: 20px;
-  transition: all 0.5s;
+  transition: all 0.2s;
   box-shadow: 0 10px 20px -4px rgba(159, 153, 153, 0.7);
-  padding: 10px 10px 10px 10px;
-  margin: 10px 10px 10px 10px;
+  padding: 10px ;
+  margin: 10px ;
   background-color: rgb(217, 220, 222);
 }
-.col-md:hover {
-  padding-right: 14px;
-  padding-left: 10px;
+#forDay:hover {
   box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.7);
+  transform: scale(1.1);
 }
 
 body {
@@ -73,3 +77,4 @@ h1 {
 .number{
   padding:4px;
 }
+
