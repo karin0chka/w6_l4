@@ -67,7 +67,7 @@ const apiKey = `d0bec9d6480b2df7e1b8e4642f141337`;
 function forecast_data(response) {
   console.log("forecast_data",response.data.list[0])
   const list = document.querySelector(".list")
-
+  list.innerHTML = ""
   for (const forecast of response.data.list){
     const date = new Date(forecast.dt_txt)
     let hours = date.getHours() > 9 ? date.getHours() : "0" + date.getHours();
