@@ -8,9 +8,10 @@ const days = [
   "Friday",
   "Saturday",
 ];
-function getTime() {
-  let currentTime = document.querySelector("#time-string");
-  let now = new Date();
+function getTime(rawDate) {
+  const currentTime = document.querySelector("#time-string");
+  const now = new Date(rawDate);
+  console.log(now)
 
   let hours = now.getHours() > 9 ? now.getHours() : "0" + now.getHours();
   let minutes =
@@ -21,7 +22,7 @@ function getTime() {
   currentTime.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
-setInterval(getTime, 1000);
+
 
 // Feature#2
 // function searchForCity(event) {
@@ -101,6 +102,9 @@ function forecast_data(response) {
 
 }
 function showTemperature(response) {
+  const cityInputTag = document.querySelector("#type-city");
+  cityInputTag.value = ``
+  getTime(response.data.dt *1000)
   console.log('res ',response.data);
   const forUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&appid=${apiKey}&units=metric`;
   axios.get(forUrl).then(forecast_data);
