@@ -84,14 +84,16 @@ function forecast_data(response) {
     p.classList = `m-0`
     p.innerText = `${Math.round(forecast.main.temp)}°C`
 
+    const description = document.createElement("small")
+    description.innerText = forecast.weather[0].description
+    description.classList = `text-capitalize`
 
-
-    
     const forDay = document.createElement("div")
     forDay.id = "forDay"
 
     forDay.appendChild(day)
     forDay.appendChild(img)
+    forDay.appendChild(description)
     forDay.appendChild(p)
 
     list.appendChild(forDay)
