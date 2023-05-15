@@ -131,16 +131,24 @@ function showTemperature(response) {
 }
 // Search
 
-
-function cityLocation(event) {
-  event.preventDefault();
-  const cityInputTag = document.querySelector("#type-city");
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInputTag.value}&appid=${apiKey}&units=metric`;
+function showCityByDefalt(city){
+  const apiKey = `d0bec9d6480b2df7e1b8e4642f141337`;
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(showTemperature);
 }
 
+function cityLocation(event) {
+  event.preventDefault();
+  const cityInputTag = document.querySelector("#type-city").value;
+  showCityByDefalt(city)
+  
+}
+
+
 const searchCity = document.querySelector("#search-form");
 searchCity.addEventListener("submit", cityLocation);
+
+
 
 function myCurrentTemperature(position) {
   console.log(position);
@@ -169,3 +177,5 @@ const headerList = document.querySelectorAll("#headerList li");
 for (let i = 0; i < headerList.length; i++) {
   headerList[i].addEventListener("click", searchByHeader);
 }
+
+showCityByDefalt("London");
