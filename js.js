@@ -11,7 +11,7 @@ const days = [
 function getTime(rawDate) {
   const currentTime = document.querySelector("#time-string");
   const now = new Date(rawDate);
-  console.log(now)
+ 
 
   let hours = now.getHours() > 9 ? now.getHours() : "0" + now.getHours();
   let minutes =
@@ -66,7 +66,6 @@ function getTime(rawDate) {
 const apiKey = `d0bec9d6480b2df7e1b8e4642f141337`;
 
 function forecast_data(response) {
-  console.log("forecast_data",response.data.list[0])
   const list = document.querySelector(".list")
   list.innerHTML = ""
   for (const forecast of response.data.list){
@@ -105,15 +104,16 @@ function showTemperature(response) {
   const cityInputTag = document.querySelector("#type-city");
   cityInputTag.value = ``
   getTime(response.data.dt *1000)
-  console.log('res ',response.data);
   const forUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${response.data.coord.lat}&lon=${response.data.coord.lon}&appid=${apiKey}&units=metric`;
   axios.get(forUrl).then(forecast_data);
 
   let showCurrentCity = document.querySelector("#cityName");
   showCurrentCity.innerHTML = `${response.data.name}`;
 
+  celsiusTemperature = response.data.main.temp;
+  
   let tempNow = document.querySelector("#tempNow");
-  tempNow.innerHTML = `${Math.round(response.data.main.temp)}`;
+  tempNow.innerHTML = Math.round(celsiusTemperature);
 
   let weatherDescription = document.querySelector("#weatherDescription");
   weatherDescription.innerHTML = `${response.data.weather[0].description}`;
@@ -142,7 +142,6 @@ function handleSubmit(event) {
   search(cityInputTag.value)
 }
 
-search("London");
 
 const searchCity = document.querySelector("#search-form");
 searchCity.addEventListener("submit", handleSubmit);
@@ -174,4 +173,34 @@ const headerList = document.querySelectorAll("#headerList li");
 for (let i = 0; i < headerList.length; i++) {
   headerList[i].addEventListener("click", searchByHeader);
 }
+//Convertation
+function displayFahrenheitTemperature(event){
+  event.preventDefault();
+  let tempNow = document.querySelector("#tempNow")
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  tempNow.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsiusTemperature(event){
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let tempNow = document.querySelector("#tempNow");
+  tempNow.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+const fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+const celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+// City by default
+search("London");
+
+
 

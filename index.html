@@ -33,6 +33,9 @@
     <link href="styles.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
+    <header >
+      <h1 class="pageName">TempSense</h1>
+    </header>
     <div class="container" style="max-width: 800px">
       <section class="color">
         <div class="card">
@@ -51,10 +54,10 @@
           <br />
           <form class="d-flex" id="search-form">
             <input
-            class="w-100 mx-1"
-            type="text"
-            placeholder="Enter your city"
-            id="type-city"
+              class="w-100 mx-1"
+              type="text"
+              placeholder="Enter your city"
+              id="type-city"
             />
             <button type="submit" class="btn btn-secondary px-5 mx-1">
               Search
@@ -67,14 +70,19 @@
             <div class="col-8">
               <h1 id="cityName"></h1>
               <h4><em id="weatherDescription"></em></h4>
-              <h2>
+              <div class="d-flex weather-temperature">
                 <img
                   src="https://openweathermap.org/img/wn/10d@2x.png"
                   id="currentIcon"
                 />
-                <span id="tempNow"></span>
-                <a id="celsius">°C </a>|<a id="farengate">°F</a>
-              </h2>
+                <div>
+                  <strong id="tempNow"></strong>
+                  <span class="units">
+                    <a href="#" id="celsius-link" class="active">°C </a>|
+                    <a href="#" id="fahrenheit-link">°F</a>
+                  </span>
+                </div>
+              </div>
             </div>
             <div class="col-4">
               <p class="weatherSituation" id="weatherSituation">
