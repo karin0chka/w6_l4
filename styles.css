@@ -3,7 +3,7 @@ a {
 }
 body {
   font-family: "Schibsted Grotesk", sans-serif;
-  background-color: rgb(221, 226, 229);
+  background-color: rgb(203, 215, 223);
 }
 header{
   background-color: rgb(164, 205, 215);
@@ -15,7 +15,7 @@ header{
   font-family: 'Mogra', cursive;
 }
 
-.list {
+#list {
   display: flex;
   overflow-x: scroll;
   overflow-y: hidden;
@@ -72,12 +72,6 @@ header{
 .card {
   margin-top: 60px;
   padding: 20px;
-  background: rgb(128, 246, 200);
-  background: linear-gradient(
-    180deg,
-    rgb(222, 147, 76) 0%,
-    rgba(255, 255, 255, 1) 39%
-  );
 }
 h1 {
   font-weight: bold;
@@ -112,4 +106,5 @@ h1 {
 .active:hover{
   text-decoration:none;
 }
+
 
